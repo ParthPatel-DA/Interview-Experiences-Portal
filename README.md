@@ -1,0 +1,2 @@
+<b>DA-IICT Interview Experiences Portal(Currently Working)</b><br><br>
+DA-InEx is a web application built for students to share interview experiences and to collaborate at a single place. Alumni DAIICT can share their experiences of their interviews and can conduct question and answer sessions for users of the system. Students can also raise a query regarding opportunities, career options or any other questions regarding their specific field on the platform to get different user perspectives.

@@ -1,0 +1,2251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/" />
+      <xs:element name="BindCBy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AdminID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindCByResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="BindCByResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindCByUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="StudentID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindCByUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="BindCByUserResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAdminDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AdminID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAdminDetailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAdminDetailResult" nillable="true" type="q1:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AdminLogin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Pwd" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AdminLoginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdminLoginResult" nillable="true" type="q2:ArrayOfint" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendLink">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="PageName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="usertype" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendLinkResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SendLinkResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangePwd">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Pwd" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="userType" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangePwdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ChangePwdResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetAdminUserName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Pwd" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetAdminUserNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SetAdminUserNameResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindCompanyGrid">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindCompanyGridResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="BindCompanyGridResult" nillable="true" type="q3:ArrayOftblCompany" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindCompanyDeactiveGrid">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindCompanyDeactiveGridResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="BindCompanyDeactiveGridResult" nillable="true" type="q4:ArrayOftblCompany" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeActivation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ID" type="xs:int" />
+            <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeActivationResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddCompany">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="CompanyWebsite" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="CompanyDescription" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="AdminID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddCompanyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AddCompanyResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCountryList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCountryListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetCountryListResult" nillable="true" type="q5:ArrayOfCountryMaster" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStateList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CountryID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStateListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetStateListResult" nillable="true" type="q6:ArrayOfStateMaster" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCityList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="StateID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCityListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetCityListResult" nillable="true" type="q7:ArrayOfCityMaster" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCompanyCityList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCompanyCityListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetCompanyCityListResult" nillable="true" type="q8:ArrayOftblCompanyCity" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddAdmin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ContactNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="AdminID" type="xs:int" />
+            <xs:element minOccurs="0" name="PageName" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddAdminResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindAdminGrid">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AdminID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindAdminGridResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="BindAdminGridResult" nillable="true" type="q9:ArrayOftblAdmin" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindAdminDeactiveGrid">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindAdminDeactiveGridResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="BindAdminDeactiveGridResult" nillable="true" type="q10:ArrayOftblAdmin" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddDesignation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Designation" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="AdminID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddDesignationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AddDesignationResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindDesignationGrid">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindDesignationGridResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="BindDesignationGridResult" nillable="true" type="q11:ArrayOftblDesignation" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindDesignationDeletedGrid">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BindDesignationDeletedGridResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="BindDesignationDeletedGridResult" nillable="true" type="q12:ArrayOftblDesignation" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProgramList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProgramListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetProgramListResult" nillable="true" type="q13:ArrayOftblProgram" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProgramFirst">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProgramFirstResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetProgramFirstResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="YearListByCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="YearListByCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="YearListByCodeResult" nillable="true" type="q14:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetYearFirst">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetYearFirstResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetYearFirstResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStudentListByProgramYear">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Program" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStudentListByProgramYearResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetStudentListByProgramYearResult" nillable="true" type="q15:ArrayOftblStudent" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStudentDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="StudentID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStudentDetailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetStudentDetailResult" nillable="true" type="q16:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStudentExpereinceByID">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="StudentID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetStudentExpereinceByIDResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetStudentExpereinceByIDResult" nillable="true" type="q17:ArrayOftblExperience" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCompanyList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCompanyListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getCompanyListResult" nillable="true" type="q18:ArrayOftblCompany" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddRecruitment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+            <xs:element minOccurs="0" name="ProgramID" type="xs:int" />
+            <xs:element minOccurs="0" name="SelectedStudents" type="xs:int" />
+            <xs:element minOccurs="0" name="AppearedStudents" type="xs:int" />
+            <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Package" type="xs:int" />
+            <xs:element minOccurs="0" name="DesignationID" type="xs:int" />
+            <xs:element minOccurs="0" name="AdminID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddRecruitmentResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDesignationList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getDesignationListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="getDesignationListResult" nillable="true" type="q19:ArrayOftblDesignation" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetActiveExperienceList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetActiveExperienceListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetActiveExperienceListResult" nillable="true" type="q20:ArrayOftblExperience" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExperienceDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ExeperienecesID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExperienceDetailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetExperienceDetailResult" nillable="true" type="q21:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDeactiveExperienceList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDeactiveExperienceListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetDeactiveExperienceListResult" nillable="true" type="q22:ArrayOftblExperience" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQuestionList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQuestionListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetQuestionListResult" nillable="true" type="q23:ArrayOftblQuestion" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQuestionByID">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQuestionByIDResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetQuestionByIDResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAnswerByQuestionID">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAnswerByQuestionIDResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetAnswerByQuestionIDResult" nillable="true" type="q24:ArrayOftblAnswer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UserLogin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Pwd" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UserLoginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UserLoginResult" nillable="true" type="q25:ArrayOfint" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckDAID">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DAID" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckDAIDResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckDAIDResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UserRegistration">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DAID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Gender" type="xs:int" />
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UserRegistrationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserRegistrationResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExperienceFeedList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExperienceFeedListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetExperienceFeedListResult" nillable="true" type="q26:ArrayOftblExperience" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExperienceRoundFeedList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ExperienceID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExperienceRoundFeedListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetExperienceRoundFeedListResult" nillable="true" type="q27:ArrayOftblExperienceRound" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExperienceQuestionFeedList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ExperienceRoundID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetExperienceQuestionFeedListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetExperienceQuestionFeedListResult" nillable="true" type="q28:ArrayOftblExperiencesQuestion" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCompanyName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCompanyNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCompanyNameResult" nillable="true" type="q29:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDesignationName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DesignationID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDesignationNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetDesignationNameResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetJobTypeName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="JobTypeID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetJobTypeNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetJobTypeNameResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRoundName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRoundNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetRoundNameResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserUserName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserUserNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetUserUserNameResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddInterestedCompany">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddInterestedCompanyResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetJobType">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetJobTypeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetJobTypeResult" nillable="true" type="q30:ArrayOftblJobType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCompanyCity">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCompanyCityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetCompanyCityResult" nillable="true" type="q31:ArrayOfCityMaster" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddExperience">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+            <xs:element minOccurs="0" name="DesignationID" type="xs:int" />
+            <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="InCamp" type="xs:boolean" />
+            <xs:element minOccurs="0" name="JobTypeID" type="xs:int" />
+            <xs:element minOccurs="0" name="IsSelected" type="xs:int" />
+            <xs:element minOccurs="0" name="CTC" type="xs:int" />
+            <xs:element minOccurs="0" name="NoOfRound" type="xs:int" />
+            <xs:element minOccurs="0" name="OverallExperienceRate" type="xs:int" />
+            <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddExperienceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AddExperienceResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddExperienceRound">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ExperienceID" type="xs:int" />
+            <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+            <xs:element minOccurs="0" name="NoOfQuestions" type="xs:int" />
+            <xs:element minOccurs="0" name="LevelOfDifficulty" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddExperienceRoundResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AddExperienceRoundResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddExperienceRoundQA">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ExperienceRoundID" type="xs:int" />
+            <xs:element minOccurs="0" name="Question" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddExperienceRoundQAResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRoundList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRoundListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetRoundListResult" nillable="true" type="q32:ArrayOftblRound" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddForumAnswer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="QID" type="xs:int" />
+            <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddForumAnswerResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddForumQuestion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Question" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddForumQuestionResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+      <xs:complexType name="ArrayOfint">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOftblCompany">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblCompany" nillable="true" type="tns:tblCompany" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblCompany" nillable="true" type="tns:ArrayOftblCompany" />
+      <xs:complexType name="tblCompany">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfilePic" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Website" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblCompany" nillable="true" type="tns:tblCompany" />
+      <xs:complexType name="ArrayOfCountryMaster">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CountryMaster" nillable="true" type="tns:CountryMaster" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCountryMaster" nillable="true" type="tns:ArrayOfCountryMaster" />
+      <xs:complexType name="CountryMaster">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateMasters" nillable="true" type="tns:ArrayOfStateMaster" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CountryMaster" nillable="true" type="tns:CountryMaster" />
+      <xs:complexType name="ArrayOfStateMaster">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="StateMaster" nillable="true" type="tns:StateMaster" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfStateMaster" nillable="true" type="tns:ArrayOfStateMaster" />
+      <xs:complexType name="StateMaster">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CityMasters" nillable="true" type="tns:ArrayOfCityMaster" />
+          <xs:element minOccurs="0" name="CountryID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CountryMaster" nillable="true" type="tns:CountryMaster" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="StateMaster" nillable="true" type="tns:StateMaster" />
+      <xs:complexType name="ArrayOfCityMaster">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CityMaster" nillable="true" type="tns:CityMaster" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCityMaster" nillable="true" type="tns:ArrayOfCityMaster" />
+      <xs:complexType name="CityMaster">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="StateMaster" nillable="true" type="tns:StateMaster" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CityMaster" nillable="true" type="tns:CityMaster" />
+      <xs:complexType name="ArrayOftblCompanyCity">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblCompanyCity" nillable="true" type="tns:tblCompanyCity" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblCompanyCity" nillable="true" type="tns:ArrayOftblCompanyCity" />
+      <xs:complexType name="tblCompanyCity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CityID" type="xs:int" />
+          <xs:element minOccurs="0" name="CompanyCityID" type="xs:int" />
+          <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblCompanyCity" nillable="true" type="tns:tblCompanyCity" />
+      <xs:complexType name="ArrayOftblAdmin">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblAdmin" nillable="true" type="tns:tblAdmin" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblAdmin" nillable="true" type="tns:ArrayOftblAdmin" />
+      <xs:complexType name="tblAdmin">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdminID" type="xs:int" />
+          <xs:element minOccurs="0" name="ContactNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblAdmin" nillable="true" type="tns:tblAdmin" />
+      <xs:complexType name="ArrayOftblDesignation">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblDesignation" nillable="true" type="tns:tblDesignation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblDesignation" nillable="true" type="tns:ArrayOftblDesignation" />
+      <xs:complexType name="tblDesignation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DesignationID" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedOn" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblDesignation" nillable="true" type="tns:tblDesignation" />
+      <xs:complexType name="ArrayOftblProgram">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblProgram" nillable="true" type="tns:tblProgram" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblProgram" nillable="true" type="tns:ArrayOftblProgram" />
+      <xs:complexType name="tblProgram">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProgramCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProgramID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProgramName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblProgram" nillable="true" type="tns:tblProgram" />
+      <xs:complexType name="ArrayOftblStudent">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblStudent" nillable="true" type="tns:tblStudent" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblStudent" nillable="true" type="tns:ArrayOftblStudent" />
+      <xs:complexType name="tblStudent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Codechef" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Codeforce" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DAID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" type="xs:int" />
+          <xs:element minOccurs="0" name="GitHub" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HeakerEarth" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HeakerRank" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsBlocked" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsVerify" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastLogin" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LinkedIn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProfilePic" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Resume" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StackOverflow" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StudentID" type="xs:int" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VerificationCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblStudent" nillable="true" type="tns:tblStudent" />
+      <xs:complexType name="ArrayOftblExperience">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblExperience" nillable="true" type="tns:tblExperience" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblExperience" nillable="true" type="tns:ArrayOftblExperience" />
+      <xs:complexType name="tblExperience">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CTC" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CompanyID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DesignationID" type="xs:int" />
+          <xs:element minOccurs="0" name="ExeperienecesID" type="xs:int" />
+          <xs:element minOccurs="0" name="InCamp" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="JobTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="NoOfRound" type="xs:int" />
+          <xs:element minOccurs="0" name="OverallExperienceRate" type="xs:int" />
+          <xs:element minOccurs="0" name="Summary" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblExperience" nillable="true" type="tns:tblExperience" />
+      <xs:complexType name="ArrayOftblQuestion">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblQuestion" nillable="true" type="tns:tblQuestion" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblQuestion" nillable="true" type="tns:ArrayOftblQuestion" />
+      <xs:complexType name="tblQuestion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Question" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblQuestion" nillable="true" type="tns:tblQuestion" />
+      <xs:complexType name="ArrayOftblAnswer">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblAnswer" nillable="true" type="tns:tblAnswer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblAnswer" nillable="true" type="tns:ArrayOftblAnswer" />
+      <xs:complexType name="tblAnswer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AnswerID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblAnswer" nillable="true" type="tns:tblAnswer" />
+      <xs:complexType name="ArrayOftblExperienceRound">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblExperienceRound" nillable="true" type="tns:tblExperienceRound" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblExperienceRound" nillable="true" type="tns:ArrayOftblExperienceRound" />
+      <xs:complexType name="tblExperienceRound">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CretaedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExperiencesID" type="xs:int" />
+          <xs:element minOccurs="0" name="ExperiencesRoundID" type="xs:int" />
+          <xs:element minOccurs="0" name="LevelOfDifficulty" type="xs:int" />
+          <xs:element minOccurs="0" name="NoOfQuestions" type="xs:int" />
+          <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblExperienceRound" nillable="true" type="tns:tblExperienceRound" />
+      <xs:complexType name="ArrayOftblExperiencesQuestion">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblExperiencesQuestion" nillable="true" type="tns:tblExperiencesQuestion" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblExperiencesQuestion" nillable="true" type="tns:ArrayOftblExperiencesQuestion" />
+      <xs:complexType name="tblExperiencesQuestion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExperiencesQuestionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ExperiencesRoundID" type="xs:int" />
+          <xs:element minOccurs="0" name="Question" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblExperiencesQuestion" nillable="true" type="tns:tblExperiencesQuestion" />
+      <xs:complexType name="ArrayOftblJobType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblJobType" nillable="true" type="tns:tblJobType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblJobType" nillable="true" type="tns:ArrayOftblJobType" />
+      <xs:complexType name="tblJobType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="JobType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobTypeID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblJobType" nillable="true" type="tns:tblJobType" />
+      <xs:complexType name="ArrayOftblRound">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tblRound" nillable="true" type="tns:tblRound" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftblRound" nillable="true" type="tns:ArrayOftblRound" />
+      <xs:complexType name="tblRound">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RoundID" type="xs:int" />
+          <xs:element minOccurs="0" name="RoundName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tblRound" nillable="true" type="tns:tblRound" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_BindCBy_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindCBy" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindCBy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindCByResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindCByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindCByUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindCByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindCByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAdminDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminDetail" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAdminDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AdminLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdminLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService_AdminLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdminLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SendLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendLink" />
+  </wsdl:message>
+  <wsdl:message name="IService_SendLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangePwd_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwd" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangePwd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SetAdminUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdminUserName" />
+  </wsdl:message>
+  <wsdl:message name="IService_SetAdminUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAdminUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindCompanyGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindCompanyGrid" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindCompanyGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindCompanyGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindCompanyDeactiveGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindCompanyDeactiveGrid" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindCompanyDeactiveGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindCompanyDeactiveGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangeActivation_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeActivation" />
+  </wsdl:message>
+  <wsdl:message name="IService_ChangeActivation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeActivationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompany" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCountryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCountryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCityList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCityList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCompanyCityList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyCityList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCompanyCityList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyCityListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindAdminGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindAdminGrid" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindAdminGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindAdminGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindAdminDeactiveGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindAdminDeactiveGrid" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindAdminDeactiveGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindAdminDeactiveGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddDesignation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDesignation" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddDesignation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDesignationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindDesignationGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindDesignationGrid" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindDesignationGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindDesignationGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindDesignationDeletedGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindDesignationDeletedGrid" />
+  </wsdl:message>
+  <wsdl:message name="IService_BindDesignationDeletedGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindDesignationDeletedGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProgramList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProgramList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProgramFirst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramFirst" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProgramFirst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProgramFirstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_YearListByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:YearListByCode" />
+  </wsdl:message>
+  <wsdl:message name="IService_YearListByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:YearListByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetYearFirst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetYearFirst" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetYearFirst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetYearFirstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStudentListByProgramYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentListByProgramYear" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStudentListByProgramYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentListByProgramYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStudentDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentDetail" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStudentDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStudentExpereinceByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentExpereinceByID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetStudentExpereinceByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStudentExpereinceByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getCompanyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanyList" />
+  </wsdl:message>
+  <wsdl:message name="IService_getCompanyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCompanyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRecruitment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRecruitment" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddRecruitment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRecruitmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_getDesignationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDesignationList" />
+  </wsdl:message>
+  <wsdl:message name="IService_getDesignationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDesignationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetActiveExperienceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveExperienceList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetActiveExperienceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveExperienceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetExperienceDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceDetail" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetExperienceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDeactiveExperienceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeactiveExperienceList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDeactiveExperienceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeactiveExperienceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuestionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuestionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuestionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionByID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuestionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAnswerByQuestionID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswerByQuestionID" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAnswerByQuestionID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswerByQuestionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UserLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService_UserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_CheckDAID_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDAID" />
+  </wsdl:message>
+  <wsdl:message name="IService_CheckDAID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDAIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UserRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserRegistration" />
+  </wsdl:message>
+  <wsdl:message name="IService_UserRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetExperienceFeedList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceFeedList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetExperienceFeedList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceFeedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetExperienceRoundFeedList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceRoundFeedList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetExperienceRoundFeedList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceRoundFeedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetExperienceQuestionFeedList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceQuestionFeedList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetExperienceQuestionFeedList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceQuestionFeedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCompanyName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCompanyName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDesignationName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDesignationName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetDesignationName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDesignationNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetJobTypeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobTypeName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetJobTypeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobTypeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRoundName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoundName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRoundName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoundNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserUserName" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddInterestedCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInterestedCompany" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddInterestedCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInterestedCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetJobType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobType" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetJobType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCompanyCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyCity" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCompanyCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddExperience_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperience" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddExperience_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperienceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddExperienceRound_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperienceRound" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddExperienceRound_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperienceRoundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddExperienceRoundQA_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperienceRoundQA" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddExperienceRoundQA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExperienceRoundQAResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRoundList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoundList" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRoundList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoundListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddForumAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddForumAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddForumAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddForumAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddForumQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddForumQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddForumQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddForumQuestionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="BindCBy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BindCBy" message="tns:IService_BindCBy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BindCByResponse" message="tns:IService_BindCBy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BindCByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BindCByUser" message="tns:IService_BindCByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BindCByUserResponse" message="tns:IService_BindCByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdminDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAdminDetail" message="tns:IService_GetAdminDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAdminDetailResponse" message="tns:IService_GetAdminDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdminLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AdminLogin" message="tns:IService_AdminLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AdminLoginResponse" message="tns:IService_AdminLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendLink">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SendLink" message="tns:IService_SendLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SendLinkResponse" message="tns:IService_SendLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ChangePwd" message="tns:IService_ChangePwd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ChangePwdResponse" message="tns:IService_ChangePwd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAdminUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SetAdminUserName" message="tns:IService_SetAdminUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SetAdminUserNameResponse" message="tns:IService_SetAdminUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BindCompanyGrid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BindCompanyGrid" message="tns:IService_BindCompanyGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BindCompanyGridResponse" message="tns:IService_BindCompanyGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BindCompanyDeactiveGrid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BindCompanyDeactiveGrid" message="tns:IService_BindCompanyDeactiveGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BindCompanyDeactiveGridResponse" message="tns:IService_BindCompanyDeactiveGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeActivation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ChangeActivation" message="tns:IService_ChangeActivation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ChangeActivationResponse" message="tns:IService_ChangeActivation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddCompany" message="tns:IService_AddCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddCompanyResponse" message="tns:IService_AddCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCountryList" message="tns:IService_GetCountryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCountryListResponse" message="tns:IService_GetCountryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStateList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStateList" message="tns:IService_GetStateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStateListResponse" message="tns:IService_GetStateList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCityList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCityList" message="tns:IService_GetCityList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCityListResponse" message="tns:IService_GetCityList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyCityList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCompanyCityList" message="tns:IService_GetCompanyCityList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCompanyCityListResponse" message="tns:IService_GetCompanyCityList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddAdmin" message="tns:IService_AddAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddAdminResponse" message="tns:IService_AddAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BindAdminGrid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BindAdminGrid" message="tns:IService_BindAdminGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BindAdminGridResponse" message="tns:IService_BindAdminGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BindAdminDeactiveGrid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BindAdminDeactiveGrid" message="tns:IService_BindAdminDeactiveGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BindAdminDeactiveGridResponse" message="tns:IService_BindAdminDeactiveGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDesignation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddDesignation" message="tns:IService_AddDesignation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddDesignationResponse" message="tns:IService_AddDesignation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BindDesignationGrid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BindDesignationGrid" message="tns:IService_BindDesignationGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BindDesignationGridResponse" message="tns:IService_BindDesignationGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BindDesignationDeletedGrid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BindDesignationDeletedGrid" message="tns:IService_BindDesignationDeletedGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BindDesignationDeletedGridResponse" message="tns:IService_BindDesignationDeletedGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetProgramList" message="tns:IService_GetProgramList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetProgramListResponse" message="tns:IService_GetProgramList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramFirst">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetProgramFirst" message="tns:IService_GetProgramFirst_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetProgramFirstResponse" message="tns:IService_GetProgramFirst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="YearListByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/YearListByCode" message="tns:IService_YearListByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/YearListByCodeResponse" message="tns:IService_YearListByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYearFirst">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetYearFirst" message="tns:IService_GetYearFirst_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetYearFirstResponse" message="tns:IService_GetYearFirst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentListByProgramYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStudentListByProgramYear" message="tns:IService_GetStudentListByProgramYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStudentListByProgramYearResponse" message="tns:IService_GetStudentListByProgramYear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStudentDetail" message="tns:IService_GetStudentDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStudentDetailResponse" message="tns:IService_GetStudentDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentExpereinceByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStudentExpereinceByID" message="tns:IService_GetStudentExpereinceByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStudentExpereinceByIDResponse" message="tns:IService_GetStudentExpereinceByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCompanyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getCompanyList" message="tns:IService_getCompanyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getCompanyListResponse" message="tns:IService_getCompanyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRecruitment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddRecruitment" message="tns:IService_AddRecruitment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddRecruitmentResponse" message="tns:IService_AddRecruitment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDesignationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/getDesignationList" message="tns:IService_getDesignationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/getDesignationListResponse" message="tns:IService_getDesignationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveExperienceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetActiveExperienceList" message="tns:IService_GetActiveExperienceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetActiveExperienceListResponse" message="tns:IService_GetActiveExperienceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetExperienceDetail" message="tns:IService_GetExperienceDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetExperienceDetailResponse" message="tns:IService_GetExperienceDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeactiveExperienceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetDeactiveExperienceList" message="tns:IService_GetDeactiveExperienceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDeactiveExperienceListResponse" message="tns:IService_GetDeactiveExperienceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetQuestionList" message="tns:IService_GetQuestionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetQuestionListResponse" message="tns:IService_GetQuestionList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetQuestionByID" message="tns:IService_GetQuestionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetQuestionByIDResponse" message="tns:IService_GetQuestionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswerByQuestionID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAnswerByQuestionID" message="tns:IService_GetAnswerByQuestionID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAnswerByQuestionIDResponse" message="tns:IService_GetAnswerByQuestionID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UserLogin" message="tns:IService_UserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UserLoginResponse" message="tns:IService_UserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDAID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/CheckDAID" message="tns:IService_CheckDAID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/CheckDAIDResponse" message="tns:IService_CheckDAID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UserRegistration" message="tns:IService_UserRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UserRegistrationResponse" message="tns:IService_UserRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceFeedList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetExperienceFeedList" message="tns:IService_GetExperienceFeedList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetExperienceFeedListResponse" message="tns:IService_GetExperienceFeedList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceRoundFeedList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetExperienceRoundFeedList" message="tns:IService_GetExperienceRoundFeedList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetExperienceRoundFeedListResponse" message="tns:IService_GetExperienceRoundFeedList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceQuestionFeedList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetExperienceQuestionFeedList" message="tns:IService_GetExperienceQuestionFeedList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetExperienceQuestionFeedListResponse" message="tns:IService_GetExperienceQuestionFeedList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCompanyName" message="tns:IService_GetCompanyName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCompanyNameResponse" message="tns:IService_GetCompanyName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignationName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetDesignationName" message="tns:IService_GetDesignationName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetDesignationNameResponse" message="tns:IService_GetDesignationName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetJobTypeName" message="tns:IService_GetJobTypeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetJobTypeNameResponse" message="tns:IService_GetJobTypeName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoundName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetRoundName" message="tns:IService_GetRoundName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetRoundNameResponse" message="tns:IService_GetRoundName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserUserName" message="tns:IService_GetUserUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserUserNameResponse" message="tns:IService_GetUserUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInterestedCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddInterestedCompany" message="tns:IService_AddInterestedCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddInterestedCompanyResponse" message="tns:IService_AddInterestedCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetJobType" message="tns:IService_GetJobType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetJobTypeResponse" message="tns:IService_GetJobType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCompanyCity" message="tns:IService_GetCompanyCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCompanyCityResponse" message="tns:IService_GetCompanyCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExperience">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddExperience" message="tns:IService_AddExperience_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddExperienceResponse" message="tns:IService_AddExperience_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExperienceRound">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddExperienceRound" message="tns:IService_AddExperienceRound_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddExperienceRoundResponse" message="tns:IService_AddExperienceRound_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExperienceRoundQA">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddExperienceRoundQA" message="tns:IService_AddExperienceRoundQA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddExperienceRoundQAResponse" message="tns:IService_AddExperienceRoundQA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoundList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetRoundList" message="tns:IService_GetRoundList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetRoundListResponse" message="tns:IService_GetRoundList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddForumAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddForumAnswer" message="tns:IService_AddForumAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddForumAnswerResponse" message="tns:IService_AddForumAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddForumQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddForumQuestion" message="tns:IService_AddForumQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddForumQuestionResponse" message="tns:IService_AddForumQuestion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BindCBy">
+      <soap:operation soapAction="http://tempuri.org/IService/BindCBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindCByUser">
+      <soap:operation soapAction="http://tempuri.org/IService/BindCByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdminDetail">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAdminDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminLogin">
+      <soap:operation soapAction="http://tempuri.org/IService/AdminLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendLink">
+      <soap:operation soapAction="http://tempuri.org/IService/SendLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwd">
+      <soap:operation soapAction="http://tempuri.org/IService/ChangePwd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAdminUserName">
+      <soap:operation soapAction="http://tempuri.org/IService/SetAdminUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindCompanyGrid">
+      <soap:operation soapAction="http://tempuri.org/IService/BindCompanyGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindCompanyDeactiveGrid">
+      <soap:operation soapAction="http://tempuri.org/IService/BindCompanyDeactiveGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeActivation">
+      <soap:operation soapAction="http://tempuri.org/IService/ChangeActivation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCompany">
+      <soap:operation soapAction="http://tempuri.org/IService/AddCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetCountryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStateList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetStateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetCityList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyCityList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetCompanyCityList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAdmin">
+      <soap:operation soapAction="http://tempuri.org/IService/AddAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindAdminGrid">
+      <soap:operation soapAction="http://tempuri.org/IService/BindAdminGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindAdminDeactiveGrid">
+      <soap:operation soapAction="http://tempuri.org/IService/BindAdminDeactiveGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDesignation">
+      <soap:operation soapAction="http://tempuri.org/IService/AddDesignation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindDesignationGrid">
+      <soap:operation soapAction="http://tempuri.org/IService/BindDesignationGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindDesignationDeletedGrid">
+      <soap:operation soapAction="http://tempuri.org/IService/BindDesignationDeletedGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetProgramList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProgramFirst">
+      <soap:operation soapAction="http://tempuri.org/IService/GetProgramFirst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YearListByCode">
+      <soap:operation soapAction="http://tempuri.org/IService/YearListByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYearFirst">
+      <soap:operation soapAction="http://tempuri.org/IService/GetYearFirst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentListByProgramYear">
+      <soap:operation soapAction="http://tempuri.org/IService/GetStudentListByProgramYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentDetail">
+      <soap:operation soapAction="http://tempuri.org/IService/GetStudentDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentExpereinceByID">
+      <soap:operation soapAction="http://tempuri.org/IService/GetStudentExpereinceByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCompanyList">
+      <soap:operation soapAction="http://tempuri.org/IService/getCompanyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRecruitment">
+      <soap:operation soapAction="http://tempuri.org/IService/AddRecruitment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDesignationList">
+      <soap:operation soapAction="http://tempuri.org/IService/getDesignationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveExperienceList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetActiveExperienceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceDetail">
+      <soap:operation soapAction="http://tempuri.org/IService/GetExperienceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeactiveExperienceList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetDeactiveExperienceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetQuestionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionByID">
+      <soap:operation soapAction="http://tempuri.org/IService/GetQuestionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswerByQuestionID">
+      <soap:operation soapAction="http://tempuri.org/IService/GetAnswerByQuestionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction="http://tempuri.org/IService/UserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDAID">
+      <soap:operation soapAction="http://tempuri.org/IService/CheckDAID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserRegistration">
+      <soap:operation soapAction="http://tempuri.org/IService/UserRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceFeedList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetExperienceFeedList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceRoundFeedList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetExperienceRoundFeedList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceQuestionFeedList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetExperienceQuestionFeedList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyName">
+      <soap:operation soapAction="http://tempuri.org/IService/GetCompanyName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignationName">
+      <soap:operation soapAction="http://tempuri.org/IService/GetDesignationName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeName">
+      <soap:operation soapAction="http://tempuri.org/IService/GetJobTypeName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoundName">
+      <soap:operation soapAction="http://tempuri.org/IService/GetRoundName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserUserName">
+      <soap:operation soapAction="http://tempuri.org/IService/GetUserUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInterestedCompany">
+      <soap:operation soapAction="http://tempuri.org/IService/AddInterestedCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobType">
+      <soap:operation soapAction="http://tempuri.org/IService/GetJobType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyCity">
+      <soap:operation soapAction="http://tempuri.org/IService/GetCompanyCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExperience">
+      <soap:operation soapAction="http://tempuri.org/IService/AddExperience" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExperienceRound">
+      <soap:operation soapAction="http://tempuri.org/IService/AddExperienceRound" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddExperienceRoundQA">
+      <soap:operation soapAction="http://tempuri.org/IService/AddExperienceRoundQA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoundList">
+      <soap:operation soapAction="http://tempuri.org/IService/GetRoundList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddForumAnswer">
+      <soap:operation soapAction="http://tempuri.org/IService/AddForumAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddForumQuestion">
+      <soap:operation soapAction="http://tempuri.org/IService/AddForumQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://localhost:49818/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
